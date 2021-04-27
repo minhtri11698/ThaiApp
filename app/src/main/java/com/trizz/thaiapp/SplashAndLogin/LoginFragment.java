@@ -1,4 +1,4 @@
-package com.trizz.thaiapp;
+package com.trizz.thaiapp.SplashAndLogin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.trizz.thaiapp.Home.HomeActivity;
+import com.trizz.thaiapp.R;
 
 public class LoginFragment extends Fragment {
 

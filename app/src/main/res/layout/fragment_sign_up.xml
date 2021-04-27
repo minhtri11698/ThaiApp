@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingTop="24dp"
     android:paddingBottom="24dp"
-    tools:context=".SignUpFragment">
+    tools:context=".SplashAndLogin.SignUpFragment">
 
     <TextView
         android:id="@+id/sign_email_text"

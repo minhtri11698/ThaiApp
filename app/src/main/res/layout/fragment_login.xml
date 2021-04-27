@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="24dp"
     android:paddingBottom="24dp"
-    tools:context=".LoginFragment">
+    tools:context=".SplashAndLogin.LoginFragment">
 
     <TextView
         android:id="@+id/email_id_text"

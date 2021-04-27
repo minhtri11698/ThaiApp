@@ -1,4 +1,4 @@
-package com.trizz.thaiapp;
+package com.trizz.thaiapp.SplashAndLogin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+import com.trizz.thaiapp.Home.HomeActivity;
+import com.trizz.thaiapp.R;
 
 public class SignUpFragment extends Fragment {
 

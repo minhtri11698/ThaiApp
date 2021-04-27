@@ -1,4 +1,4 @@
-package com.trizz.thaiapp;
+package com.trizz.thaiapp.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

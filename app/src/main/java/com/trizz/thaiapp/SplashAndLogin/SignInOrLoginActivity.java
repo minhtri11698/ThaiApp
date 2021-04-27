@@ -1,4 +1,4 @@
-package com.trizz.thaiapp;
+package com.trizz.thaiapp.SplashAndLogin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,10 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.trizz.thaiapp.Adapter.ViewPagerAdapter;
+import com.trizz.thaiapp.R;
+import com.trizz.thaiapp.SplashAndLogin.LoginFragment;
+import com.trizz.thaiapp.SplashAndLogin.SignUpFragment;
 
 import java.util.ArrayList;
 

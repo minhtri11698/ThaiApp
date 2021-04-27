@@ -1,4 +1,4 @@
-package com.trizz.thaiapp;
+package com.trizz.thaiapp.Splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.trizz.thaiapp.Home.HomeActivity;
+import com.trizz.thaiapp.R;
+import com.trizz.thaiapp.SplashAndLogin.SignInOrLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
