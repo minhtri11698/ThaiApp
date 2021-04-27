@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "651108865128",
+    "project_id": "learnthailanguage-b2271",
+    "storage_bucket": "learnthailanguage-b2271.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651108865128:android:e6eb55a1264fc1bf9d97dd",
+        "android_client_info": {
+          "package_name": "com.example.learnthailaguage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrZ2VVMYOXPOO4EKxWtX2mT-tOFlBCCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651108865128:android:b17e3c34c4553d9b9d97dd",
+        "android_client_info": {
+          "package_name": "com.example.learnthailangage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrZ2VVMYOXPOO4EKxWtX2mT-tOFlBCCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651108865128:android:db032b561d89fd7b9d97dd",
+        "android_client_info": {
+          "package_name": "com.trizz.thaiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrZ2VVMYOXPOO4EKxWtX2mT-tOFlBCCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651108865128-6ijef291kg3hnt060i15hucseau0ucj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
