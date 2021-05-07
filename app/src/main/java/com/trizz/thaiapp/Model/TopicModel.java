@@ -5,19 +5,30 @@ import android.graphics.drawable.Drawable;
 import java.util.ArrayList;
 
 public class TopicModel {
-    private Drawable topicImage;
-    private ArrayList<WordModel> wordArrayList;
+    private Integer topicImage;
+    private String topicName;
 
-    public TopicModel(Drawable topicImage, ArrayList<WordModel> wordArrayList) {
+    public TopicModel(Integer topicImage, String topicName, ArrayList<WordModel> wordArrayList) {
         this.topicImage = topicImage;
+        this.topicName = topicName;
         this.wordArrayList = wordArrayList;
     }
 
-    public Drawable getTopicImage() {
+    private ArrayList<WordModel> wordArrayList;
+
+    public String getTopicName() {
+        return topicName;
+    }
+
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
+    }
+
+    public Integer getTopicImage() {
         return topicImage;
     }
 
-    public void setTopicImage(Drawable topicImage) {
+    public void setTopicImage(Integer topicImage) {
         this.topicImage = topicImage;
     }
 
