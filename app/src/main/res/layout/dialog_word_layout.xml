@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/dialog_out_line"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/word_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:padding="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_animal" />
+
+    <ImageView
+        android:id="@+id/close_word"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/word_image"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="4dp"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        tools:text="asdasd" />
+
+    <TextView
+        android:id="@+id/meaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/word"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="asdasdas" />
+</RelativeLayout>

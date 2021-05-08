@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.trizz.thaiapp.Home.HomeActivity;
 import com.trizz.thaiapp.R;
 
@@ -46,6 +45,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         login.setOnClickListener(v -> {
+
             if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
                 Toast.makeText(requireContext(), "Please fills in all fields", Toast.LENGTH_LONG).show();
             } else {
@@ -74,7 +74,6 @@ public class LoginFragment extends Fragment {
         mAuth.signInWithEmailAndPassword(uEmail, pwd).addOnCompleteListener(requireActivity(), task -> {
             if (task.isSuccessful()) {
                 loginProg.dismiss();
-                FirebaseUser user = mAuth.getCurrentUser();
                 Intent loggedInIntent = new Intent(requireContext(), HomeActivity.class);
                 loggedInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(loggedInIntent);
