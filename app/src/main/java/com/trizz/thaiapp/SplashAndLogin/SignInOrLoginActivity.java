@@ -25,11 +25,13 @@ public class SignInOrLoginActivity extends AppCompatActivity implements TabLayou
         setContentView(R.layout.activity_sign_in_or_login);
         viewPager = findViewById(R.id.viewpager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
+        // Tao mot ViewPager de chua 2 fragment login va sign up
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager(), this.getLifecycle());
         viewPagerAdapter.addFragment(LoginFragment.newInstance());
         viewPagerAdapter.addFragment(SignUpFragment.newInstance());
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager, this);
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        // Ngan viec nguoi dung luot de doi sang fragment ben canh
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setCurrentItem(0, true);
@@ -38,6 +40,7 @@ public class SignInOrLoginActivity extends AppCompatActivity implements TabLayou
 
     @Override
     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+        // Set Text cho TabLayout
         ArrayList<String> array = new ArrayList<>();
         array.add("login");
         array.add("sign in");

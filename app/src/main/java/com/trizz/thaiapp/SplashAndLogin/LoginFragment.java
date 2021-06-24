@@ -46,6 +46,9 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         login.setOnClickListener(v -> {
 
+            /** Kiem tra xem email hay password co dang bi de trong hay khong
+             * Chua thuc hien kiem tra xem email co hop le hay khong hoac password co du so luong hay khong */
+
             if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
                 Toast.makeText(requireContext(), "Please fills in all fields", Toast.LENGTH_LONG).show();
             } else {
@@ -53,6 +56,7 @@ public class LoginFragment extends Fragment {
                 loginProg.setMessage("Logging in your account, please wait...");
                 loginProg.setCanceledOnTouchOutside(false);
                 loginProg.show();
+                // Dung Firebase de login vao bang email va password
                 loginUser(email.getText().toString(), password.getText().toString());
             }
         });
@@ -71,6 +75,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void loginUser(String uEmail, String pwd) {
+        // Lang nghe neu viec login co thanh cong hay khong. Neu thanh cong thi vao man Home
         mAuth.signInWithEmailAndPassword(uEmail, pwd).addOnCompleteListener(requireActivity(), task -> {
             if (task.isSuccessful()) {
                 loginProg.dismiss();

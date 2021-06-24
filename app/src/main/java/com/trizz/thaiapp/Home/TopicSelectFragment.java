@@ -59,31 +59,34 @@ public class TopicSelectFragment extends Fragment {
         return fragment;
     }
 
-    /** read excel data file to get all the data */
+    /** read excel data file to get all the data
+     * Duyet file excel theo hang va cot theo tung sheet
+     * File excel duoc luu trong folder assets voi cau truc la cot 1 la tu, cot 2 la nghia va cot 3 la hinh */
 
     private ArrayList<TopicModel> readExcel(Context context) {
         ArrayList<TopicModel> topicList = new ArrayList<>();
         try {
+            // Tao mot inputStream den duong dan cua file duoc luu
             InputStream is = context.getApplicationContext().getAssets().open("data.xlsx");
             Workbook workbook = WorkbookFactory.create(is);
-            int numberOfSheet = workbook.getNumberOfSheets();
+            int numberOfSheet = workbook.getNumberOfSheets(); // So luong sheet trong file
             workbook.getAllPictures();
             int sheetIndex = 0;
-            while (sheetIndex < numberOfSheet) {
-                ArrayList<WordModel> wordList = new ArrayList<>();
-                Sheet sheet = workbook.getSheetAt(sheetIndex);
+            while (sheetIndex < numberOfSheet) { // Vong lap cac sheet cua file tu sheet 0. Moi sheet la mot topic tu
+                ArrayList<WordModel> wordList = new ArrayList<>(); // List cac tu trong sheet
+                Sheet sheet = workbook.getSheetAt(sheetIndex); // Lay ra sheet theo index
                 sheetIndex++;
-                ArrayList<Picture> pictureArrayList = getPictureFromSheet(sheet);
+                ArrayList<Picture> pictureArrayList = getPictureFromSheet(sheet); // Lay ra list anh tu sheet
                 int index = 0;
-                for (Row row : sheet) {
-                    String wordText = row.getCell(0).getStringCellValue();
-                    String meaning = row.getCell(1).getStringCellValue();
-                    Picture pic = index < pictureArrayList.size() ? pictureArrayList.get(index) : null;
+                for (Row row : sheet) { // Duyet file theo cac hang
+                    String wordText = row.getCell(0).getStringCellValue(); // La ra word duoc luu o cot 0
+                    String meaning = row.getCell(1).getStringCellValue(); // Lay ra meaning duoc luu o cot 1
+                    Picture pic = index < pictureArrayList.size() ? pictureArrayList.get(index) : null; // Lay anh cua hinh theo thu tu index. Cach nay co the lay ra hinh sai neu co 1 tu khong co hinh anh
                     index++;
-                    WordModel word = new WordModel(wordText, meaning, pic);
+                    WordModel word = new WordModel(wordText, meaning, pic); // Tao mot object word de luu lai va add vao list tu
                     wordList.add(word);
                 }
-                TopicModel topic = new TopicModel(getTopicImage(sheet.getSheetName()), sheet.getSheetName(), wordList);
+                TopicModel topic = new TopicModel(getTopicImage(sheet.getSheetName()), sheet.getSheetName(), wordList); // Sau khi duyet het sheet la xong 1 topic. Luu lai
                 topicList.add(topic);
             }
         } catch (IOException e) {
@@ -94,8 +97,8 @@ public class TopicSelectFragment extends Fragment {
         return topicList;
     }
 
-    /** get all the image from a sheet, return list of image */
-
+    /** get all the image from a sheet, return list of image
+     * Lay ra anh duoi dang Object Picture cua ApachePOI */
     private ArrayList<Picture> getPictureFromSheet(Sheet sheet) {
         Drawing draw = sheet.createDrawingPatriarch();
         ArrayList<Picture> pics = new ArrayList<>();

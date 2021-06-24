@@ -21,10 +21,8 @@ public class WordDialog extends Dialog implements
 
     TextToSpeech textToSpeech;
 
-    private WordModel wordModel;
-    private Activity activity;
-    private ImageView wordImage, close;
-    private TextView word, meaning;
+    private final WordModel wordModel;
+    private final Activity activity;
 
     public WordDialog(Activity activity, WordModel model) {
         super(activity);
@@ -38,16 +36,19 @@ public class WordDialog extends Dialog implements
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_word_layout);
-        wordImage = findViewById(R.id.word_image);
-        close = findViewById(R.id.close_word);
-        word = findViewById(R.id.word);
-        meaning = findViewById(R.id.meaning);
+        ImageView wordImage = findViewById(R.id.word_image);
+        ImageView close = findViewById(R.id.close_word);
+        TextView word = findViewById(R.id.word);
+        TextView meaning = findViewById(R.id.meaning);
         wordImage.setOnClickListener(this);
         close.setOnClickListener(this);
         word.setText(wordModel.getWord());
         meaning.setText(wordModel.getMeaning());
+        // Lay du lieu anh ra. Anh duoc luu duoi dang byte array trong model WordModel
         byte[] data = wordModel.getWordDraw().getPictureData().getData();
+        // Decode byte array ra bitmap de hien thi ra view
         Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+        // Set anh cua word vao view
         wordImage.setImageBitmap(bitmap);
     }
 
@@ -66,6 +67,8 @@ public class WordDialog extends Dialog implements
         }
     }
 
+    // Khoi tao doi tuong TextToSpeech neu chua duoc khoi tao
+    // Neu dang duoc su dung thi se dung viec dang phat lai de phat am tu moi
     private void speak() {
         if(textToSpeech != null && textToSpeech.isSpeaking()) {
             textToSpeech.stop();
@@ -77,10 +80,11 @@ public class WordDialog extends Dialog implements
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
+            // Set language doc la tieng Thai
             int res = textToSpeech.setLanguage(Locale.forLanguageTag("th"));
-            //tts.getAvailableLanguages().;
             textToSpeech.setSpeechRate(1f);
 
+            // Neu language kha dung thi se doc tu do len
             if (res >= TextToSpeech.LANG_AVAILABLE) {
                 String toSpeak = wordModel.getWord();
                 textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);

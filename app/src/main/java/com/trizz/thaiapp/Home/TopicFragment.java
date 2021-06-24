@@ -33,7 +33,7 @@ public class TopicFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView wordRecycler = requireActivity().findViewById(R.id.list_word_recycler);
-        ListWordAdapter adapter = new ListWordAdapter(item.getWordArrayList(), item -> showWordDialog(item));
+        ListWordAdapter adapter = new ListWordAdapter(item.getWordArrayList(), this::showWordDialog);
         wordRecycler.setAdapter(adapter);
         wordRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
     }

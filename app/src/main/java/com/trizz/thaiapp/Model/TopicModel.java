@@ -1,6 +1,5 @@
 package com.trizz.thaiapp.Model;
 
-import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 

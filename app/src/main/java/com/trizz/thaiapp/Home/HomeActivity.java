@@ -22,7 +22,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        // Hien fragment topic
         showFragment(TopicSelectFragment.newInstance(), false, R.id.container);
+        // Get firebase Auth instance
         mAuth = FirebaseAuth.getInstance();
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
@@ -37,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+    // Set cac action khi click vao cac menu item
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
@@ -57,12 +60,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void logOutApp() {
+        // Goi ham sign out cua Firebase de log out khoi account
+        // Firebase luu section login bang device id
         mAuth.signOut();
+        // Dung intent de quay tro lai man hinh login hoac dang ky
         Intent intent = new Intent(this, SignInOrLoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
+    // Ham dung de show fragment moi len tren fragment cu
     public void showFragment(Fragment fragment, Boolean addToBackStack , int layoutId) {
         FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction()
                 .add(layoutId, fragment, fragment.getClass().getSimpleName())

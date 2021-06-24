@@ -41,9 +41,11 @@ public class SignUpFragment extends Fragment {
             String email = emailInput.getText().toString();
             String pwd = password.getText().toString();
             String confirmPwd = passwordConfirm.getText().toString();
+            // Kiem tra loi trong viec nhap email va password
             if (email.isEmpty() || pwd.isEmpty() || confirmPwd.isEmpty()) {
                 Toast.makeText(requireContext(), "Info is blank", Toast.LENGTH_LONG).show();
             } else if (!pwd.equals(confirmPwd)) {
+                // Password khong giong nhau
                 Toast.makeText(requireContext(), "Incorect confirm password", Toast.LENGTH_LONG).show();
             } else {
                 createUser(email, pwd);
@@ -64,13 +66,14 @@ public class SignUpFragment extends Fragment {
     }
 
     private void createUser(String email, String pass) {
+        // Lang nghe viec khoi tao tai khoan thanh cong hay khong
         mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(requireActivity(), task -> {
             if (task.isSuccessful()) {
                 Intent loggedInIntent = new Intent(requireContext(), HomeActivity.class);
                 loggedInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(loggedInIntent);
                 requireActivity().finish();
-            }
+            } else Toast.makeText(requireContext(), "Create account failed!", Toast.LENGTH_LONG).show();
         });
     }
 }
